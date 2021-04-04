@@ -5,6 +5,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/algorithm/boj/Level5" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/algorithm/programmas" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/algorithm/kakao" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
