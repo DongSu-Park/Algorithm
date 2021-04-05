@@ -48,6 +48,7 @@ class Level1_GymSuit {
                 }
             }
 
+            // 잃어버린 사람 주변에서 빌리기 시작
             for (i in 0 until gymSuit.size){
                 if (gymSuit[i] == "l"){
                     if (gymSuit[i-1] == "r" && i-1 >= 0){
@@ -60,6 +61,7 @@ class Level1_GymSuit {
                 }
             }
 
+            // 최종 결과
             for (i in 0..gymSuit.size) {
                 if (gymSuit[i] == "c" || gymSuit[i] == "r") {
                     answer += 1
