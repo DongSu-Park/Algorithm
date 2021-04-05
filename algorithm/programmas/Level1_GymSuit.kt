@@ -27,37 +27,45 @@
 
 class Level1_GymSuit {
     fun solution(n: Int, lost: IntArray, reserve: IntArray): Int {
-        var people = arrayListOf<Int>()
+        var answer = 0
+        if (n in 2..30 && (lost.size in 1..n) && (reserve.size in 1..n)){
+            var people = arrayListOf<Int>()
 
-        for (i in 1..n){
-            people.add(i)
-        }
+            for (i in 1..n){
+                people.add(i)
+            }
 
-        val gymSuit = HashMap<Int, String>() // 해쉬맵으로 일단 체크
-        for (i in 1..n){
-            if (lost.contains(i)){
-                gymSuit.set(i, "l") // 잃어버림
-            } else if (reserve.contains(i)){
-                gymSuit.set(i, "r") // 여유분이 있음
-            } else {
-                gymSuit.set(i, "c") // 그냥 있
+            val gymSuit = HashMap<Int, String>() // 해쉬맵으로 일단 체크
+            for (i in 1..n){
+                if (reserve.contains(i) && lost.contains(i)){
+                    gymSuit.set(i, "c") // 여유분이 2개가 원래 있었는데 한개가 잃어버렸으니 그냥 가지고 있는거
+                } else if (lost.contains(i)){
+                    gymSuit.set(i, "l") // 그냥 완전히 잃어버린거
+                } else if (reserve.contains(i)){
+                    gymSuit.set(i, "r") // 여유분이 있는거 (한 개)
+                } else {
+                    gymSuit.set(i, "c") // 그냥 가지고 있는거
+                }
+            }
+
+            for (i in 0 until gymSuit.size){
+                if (gymSuit[i] == "l"){
+                    if (gymSuit[i-1] == "r" && i-1 >= 0){
+                        gymSuit[i-1] = "c"
+                        gymSuit[i] = "c"
+                    } else if (gymSuit[i+1] == "r" && i+1 <= gymSuit.size){
+                        gymSuit[i+1] = "c"
+                        gymSuit[i] = "c"
+                    }
+                }
+            }
+
+            for (i in 0..gymSuit.size) {
+                if (gymSuit[i] == "c" || gymSuit[i] == "r") {
+                    answer += 1
+                }
             }
         }
-
-        print(gymSuit) // r,l,r,l,r
-
-        for (i in 1..lost.size){
-//           if (gymSuit.get(lost[i]-1) == ) // lost[i] == 2
-        }
-
-
-
-
-//        for (i in 0 until people.size){
-//            print(people[i])
-//        }
-
-        var answer = 0
         return answer
     }
 }
@@ -65,10 +73,11 @@ class Level1_GymSuit {
 fun main(args: Array<String>) {
     val solution = Level1_GymSuit()
 
-    val people = 5
-    val lost = intArrayOf(2,4)
-    val reserve = intArrayOf(1,3,5)
+    val people = 7
+    val lost = intArrayOf(1,2,3,4,5,6,7)
+    val reserve = intArrayOf(1,2,3)
 
     val output = solution.solution(people, lost, reserve)
-//    println(output)
+
+    println(output)
 }
