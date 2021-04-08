@@ -2,7 +2,7 @@
  * 직사각형 별찍기
  * */
 
-class Leve1_PrintStar {
+class Level1_PrintStar {
 }
 
 fun main() {
