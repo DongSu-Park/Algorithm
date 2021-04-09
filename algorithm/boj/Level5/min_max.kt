@@ -17,6 +17,4 @@ fun main() {
     } else {
         print("일치하지 않음")
     }
-
-
 }
