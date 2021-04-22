@@ -22,7 +22,9 @@
  * 문제 해결 과정 중 테스트 케이스 오류 사항
  * 1) 입력한 숫자가 Long형 일 수 있으니 처음부터 숫자와 연산자를 나눌 때 자료형을 Long형으로 맞춰야 함.
  * 2) 갱신이 되고 나서 처리한 연산자와 숫자를 삭제해주고 while 연산자의 증감 연산의 배열 위치도 -1을 해줘야 함.
+ *
  * */
+
 class Level2_NumMax {
     fun solution(expression: String): Long {
         // 숫자와 연산자를 따로 저장
@@ -31,20 +33,20 @@ class Level2_NumMax {
         var num = ""
         for (i in 0 until expression.length){
             if (expression[i] !in '0'..'9'){
-                numberList.add(num.toLong())
-                exOperatorList.add(expression[i].toString())
+                numberList.add(num.toLong()) // 숫자를 숫자 리스트에 저장 (순서대로)
+                exOperatorList.add(expression[i].toString()) // 연산자를 연산자 리스트에 저장 (순서대로)
                 num = ""
             } else {
                 num += expression[i]
             }
 
-            if (i == expression.length - 1){
+            if (i == expression.length - 1){ // 문자열의 끝에 도달
                 numberList.add(num.toLong())
             }
         }
 
-        val allOperatorList = arrayListOf<String>("123","132","213","231","312","321")
-        val answerList = mutableListOf<Long>()
+        val allOperatorList = arrayListOf<String>("123","132","213","231","312","321") // 연산자의 경우의 수 6개 (-+*, +-*, *-+ ...)
+        val answerList = mutableListOf<Long>() // 모든 연산자 경우의 수를 숫자 연산한 값 리스트
 
         // 완전 탐색
         for(i in 0 until allOperatorList.size){
@@ -93,8 +95,8 @@ class Level2_NumMax {
             }
 
             if (targetNumList.size == 1){
-                if (targetNumList[0] < 0){
-                    targetNumList[0] = Math.abs(targetNumList[0])
+                if (targetNumList[0] < 0){ // 해당 값이 - 부호 값이면
+                    targetNumList[0] = Math.abs(targetNumList[0]) // abs로 절댓값 처리
                     answerList.add(targetNumList[0])
                 } else {
                     answerList.add(targetNumList[0])
@@ -102,17 +104,16 @@ class Level2_NumMax {
             }
         }
 
-        return answerList.max()!!
+        return answerList.maxOrNull()!!
     }
 
-    // 11,12,13,14,15,24,27,28,29
 }
 
 fun main() {
     val solution = Level2_NumMax()
-//    println(solution.solution("100-200*300-500+20")) // -60420 -> 60420
+    println(solution.solution("100-200*300-500+20")) // -60420 -> 60420
     println(solution.solution("50*6-3*2")) // 300
     println(solution.solution("2-990-5+2")) // 995
     println(solution.solution("300*300*300+20"))
-    println(solution.solution("100*200+300-500")) //
+    println(solution.solution("100*200+300-500"))
 }
