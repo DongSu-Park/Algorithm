@@ -14,12 +14,10 @@ class Level1_MinusPlusAdd {
     fun solution(absolutes: IntArray, signs: BooleanArray): Int{
         var answer = 0
 
-        val absolutesList = absolutes.toMutableList()
         for (i in 0 until signs.size){
             if (!signs[i]){
-                absolutesList[i] *= -1
-                answer += absolutesList[i]
-            } else answer += absolutesList[i]
+                answer += -1 * absolutes[i]
+            } else answer += absolutes[i]
         }
 
         return answer
