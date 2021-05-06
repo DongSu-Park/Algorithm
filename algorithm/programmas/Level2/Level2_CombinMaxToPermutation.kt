@@ -5,7 +5,7 @@
  * => 배열의 개수가 한정적인 경우 dfs를 이용한 순열을 구현하여 문제푸는 방식도 괜찮음
  * */
 
-class Level2_CombinMax {
+class Level2_CombinMaxToPermutation {
     val totalNum = mutableListOf<Int>()
 
     fun solution(numbers : IntArray): String{
@@ -42,7 +42,7 @@ class Level2_CombinMax {
 }
 
 fun main() {
-    val solution = Level2_CombinMax()
+    val solution = Level2_CombinMaxToPermutation()
     println(solution.solution(intArrayOf(6,2,10))) // 6210
     println(solution.solution(intArrayOf(3,30,34,5,9))) // 9534330
 }
