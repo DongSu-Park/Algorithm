@@ -12,7 +12,7 @@
  *
  * */
 
-class TwoSum {
+class No1_TwoSum {
     fun solution(nums: IntArray, target: Int): IntArray{
         val answer = IntArray(2)
 
@@ -30,7 +30,7 @@ class TwoSum {
 }
 
 fun main() {
-    val solution = TwoSum()
+    val solution = No1_TwoSum()
 
     println(solution.solution(intArrayOf(2,7,11,15), 9).toList())
     println(solution.solution(intArrayOf(3,2,4),6).toList())

@@ -14,7 +14,7 @@ import kotlin.math.pow
  *     단 결과물이 32bit 정수를 넘는다면 0으로 리턴하시오 (32Bit 경계: -231 <= x <= 231 - 1)
  * */
 
-class ReverseInteger {
+class No7_ReverseInteger {
     fun solution(x: Int): Int{
         var num = x.toLong()
         var isNumMinus = false
@@ -29,7 +29,7 @@ class ReverseInteger {
         if (isNumMinus){
             numCheck *= -1
         }
-
+ 
         if ((numCheck >= ((2.0).pow(31) - 1).toLong()) || (numCheck <= (((2.0).pow(31) * - 1).toLong()))){
             return 0
         } else {
@@ -39,12 +39,12 @@ class ReverseInteger {
 }
 
 fun main() {
-    val solution = ReverseInteger()
+    val solution = No7_ReverseInteger()
 
-//    println(solution.solution(1534236469))
-//    println(solution.solution(123))
-//    println(solution.solution(-123))
-//    println(solution.solution(120))
-//    println(solution.solution(0))
+    println(solution.solution(1534236469))
+    println(solution.solution(123))
+    println(solution.solution(-123))
+    println(solution.solution(120))
+    println(solution.solution(0))
     println(solution.solution(-2147483648))
 }
