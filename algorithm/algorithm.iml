@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/boj" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/book" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/programmas" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/leetCode" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
