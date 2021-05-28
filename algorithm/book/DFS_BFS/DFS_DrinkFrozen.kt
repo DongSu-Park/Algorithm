@@ -30,7 +30,7 @@ class DFS_DrinkFrozen {
         if (x <= -1 || x >= map.size || y <= -1 || y >= map[0].size)
             return false
 
-        // 현재 노드를 아직 방문하지 않았고, 해당 지점이 비여 있다면
+        // 현재 노드를 아직 방문하지 않았고, 해당 지점이 비여 있다면 방문 처리
         if (!visited[x][y] && map[x][y] == 0){
             visited[x][y] = true
 
