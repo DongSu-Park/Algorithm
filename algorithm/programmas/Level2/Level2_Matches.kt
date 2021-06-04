@@ -15,6 +15,8 @@ class Level2_Matches {
             val filter = groupList.filter { it.contentEquals(arrayOf(a-1, a)) }
             aGroupPos = groupList.indices.find({ i -> groupList[i].contentEquals(arrayOf(a-1, a)) })!!
             println()
+
+            
         } else {
             aGroupPos = groupList.indexOf(arrayOf(a, a + 1))
         }
