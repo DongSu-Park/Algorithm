@@ -21,14 +21,14 @@ class Weekly_1st {
     fun solution(price: Int, money: Int, count: Int): Long {
         var answer: Long = -1
 
-        var finaryMoney : Long = 0
+        var totalMoney: Long = 0
 
-        for (i in 1..count){
-            finaryMoney += price * i
+        for (i in 1..count) {
+            totalMoney += price * i
         }
 
-        if (finaryMoney > money){
-            answer = finaryMoney - money
+        if (totalMoney > money) {
+            answer = totalMoney - money
         } else {
             answer = 0
         }
@@ -39,5 +39,5 @@ class Weekly_1st {
 
 fun main() {
     val solution = Weekly_1st()
-    println(solution.solution(3,20,4)) // 10
+    println(solution.solution(3, 20, 4)) // 10
 }
